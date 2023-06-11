@@ -1,9 +1,20 @@
-import React from 'react'
+import React from 'react';
+import NavItem from './NavItem';
+import NavTitle from './NavTitle';
 
 const Navbar = () => {
-  return (
-    <div>Navbar</div>
-  )
-}
+  const navItems = ['Home', 'Post', 'About', 'Contact'];
 
-export default Navbar
+  return (
+    <div className='navbar'>
+      <NavTitle />
+      <div className='nav-items'>
+        {navItems.map((navItem) => (
+          <NavItem itemName={navItem} />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Navbar;
