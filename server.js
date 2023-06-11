@@ -6,15 +6,12 @@ const blogRoute = require('./routes/blogRoute');
 
 const app = express();
 
-
 // Middleware
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(bodyParser.urlencoded({extended: true}))
-
 
 // Routes
 app.use('/api/v1', blogRoute);
-
 
 // DB connection
 mongoose
