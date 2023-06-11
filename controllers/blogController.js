@@ -24,11 +24,27 @@ const createBlog = (req, res) => {
     .catch((err) => console.log(err));
 };
 
-const updateBlog = (req, res) => {};
+const updateBlog = (req, res) => {
+  const requestedId = req.params.id;
+  const blogData = req.body;
 
-const deleteAllBlogs = (req, res) => {};
+  Blog.findByIdAndUpdate(requestedId, blogData)
+    .then(() => res.status(200).json({ success: true }))
+    .catch((err) => console.log(err));
+};
 
-const deleteBlog = (req, res) => {};
+const deleteAllBlogs = (req, res) => {
+  Blog.deleteMany({})
+    .then((blogs) => res.status(200).json({ success: true }))
+    .catch((err) => console.log(err));
+};
+
+const deleteBlog = (req, res) => {
+  const requestedId = req.params.id;
+  Blog.findByIdAndRemove(requestedId)
+    .then((blog) => res.status(200).json({ success: true }))
+    .catch((err) => console.log(err));
+};
 
 module.exports = {
   getAllBlogs,
