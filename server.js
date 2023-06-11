@@ -2,14 +2,19 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 require('dotenv').config();
+const blogRoute = require('./routes/blogRoute');
 
 const app = express();
 
-app.use(express.json());
 
-app.get('/', (req, res) => {
-  res.status(200).json({ success: true });
-});
+// Middleware
+app.use(express.json());
+app.use(bodyParser.urlencoded({extended: true}))
+
+
+// Routes
+app.use('/api/v1', blogRoute);
+
 
 // DB connection
 mongoose
