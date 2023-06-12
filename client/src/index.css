@@ -1,3 +1,10 @@
+/* Colors
+#C2DEDC
+#ECE5C7
+#CDC2AE
+#116A7B
+*/
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,6 +12,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #ffffff;
 }
 
 code {
@@ -15,7 +23,7 @@ code {
 .navbar {
   display: flex;
   justify-content: space-between;
-  background-color: blue;
+  background-color: #c2dedc;
   align-items: center;
   padding: 0%;
   margin-bottom: 2rem;
@@ -23,6 +31,7 @@ code {
 
 .nav-title {
   margin-left: 2rem;
+  color: #116a7b;
 }
 
 .nav-items {
@@ -32,4 +41,18 @@ code {
   gap: 5rem;
   font-weight: bold;
   font-size: large;
+  color: #116a7b;
+}
+
+.footer {
+  text-align: center;
+  font-weight: 500;
+  color: #116a7b;
+}
+
+.read-more {
+  font-weight: bold;
+  /* border: 1px solid black; */
+  color: #116a7b;
+  background-color: #c2dedc;
 }

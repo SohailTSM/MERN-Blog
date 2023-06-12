@@ -9,8 +9,8 @@ const Navbar = () => {
     <div className='navbar'>
       <NavTitle />
       <div className='nav-items'>
-        {navItems.map((navItem) => (
-          <NavItem itemName={navItem} />
+        {navItems.map((navItem, index) => (
+          <NavItem itemName={navItem} key={index} />
         ))}
       </div>
     </div>

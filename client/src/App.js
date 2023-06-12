@@ -9,10 +9,14 @@ import Blog from './components/Blog';
 import Page404 from './components/Page404';
 
 function App() {
+  const blogs = [
+    { title: 'Title 1', content: 'Content 1' },
+    { title: 'Title 2', content: 'Content 2' },
+  ];
   function setContent(tabName) {
     switch (tabName) {
       case 'Home':
-        return <Home />;
+        return <Home blogs={blogs} />;
       case 'Post':
         return <Post />;
       case 'About':
