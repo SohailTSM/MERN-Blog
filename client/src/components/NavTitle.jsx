@@ -1,9 +1,9 @@
 import React from 'react';
 
-const NavTitle = () => {
+const NavTitle = (props) => {
   return (
     <div className='nav-title'>
-      <h1>Blog</h1>
+      <h1 onClick={props.onClick}>Blog</h1>
     </div>
   );
 };

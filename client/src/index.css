@@ -32,6 +32,8 @@ code {
 .nav-title {
   margin-left: 2rem;
   color: #116a7b;
+  cursor: pointer;
+  user-select: none;
 }
 
 .nav-items {
@@ -42,6 +44,12 @@ code {
   font-weight: bold;
   font-size: large;
   color: #116a7b;
+  justify-self: flex-end;
+}
+
+.nav-items div {
+  cursor: pointer;
+  user-select: none;
 }
 
 .footer {
@@ -55,4 +63,10 @@ code {
   /* border: 1px solid black; */
   color: #116a7b;
   background-color: #c2dedc;
+  cursor: pointer;
+  user-select: none;
+}
+
+a {
+  text-decoration: none;
 }
