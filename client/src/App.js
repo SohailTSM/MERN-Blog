@@ -10,8 +10,8 @@ import Page404 from './components/Page404';
 
 function App() {
   const blogs = [
-    { id: "0", title: 'Title 1', content: 'Content 1' },
-    { id: "1", title: 'Title 2', content: 'Content 2' },
+    { id: '0', title: 'Title 1', content: 'Content 1' },
+    { id: '1', title: 'Title 2', content: 'Content 2' },
   ];
   function setContent(tabName) {
     switch (tabName) {
@@ -24,7 +24,7 @@ function App() {
       case 'Contact':
         return <Contact />;
       case 'Blog':
-        return;
+        return <Blog id={selectedId} />;
       default:
         return <Page404 />;
     }
@@ -32,15 +32,16 @@ function App() {
 
   const [tab, setTab] = useState('Home');
 
+  const [selectedId, setSelectedId] = useState('');
+
   function onClickNavItemHandler(event) {
     const requestedTab = event.target.innerHTML;
     setTab(requestedTab === 'Blog' ? 'Home' : requestedTab);
   }
 
   function onClickReadMoreHandler(id) {
+    setSelectedId(id);
     setTab('Blog');
-    console.log(id);
-    return ;
   }
 
   return (
