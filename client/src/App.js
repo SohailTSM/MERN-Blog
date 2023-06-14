@@ -23,13 +23,13 @@ function App() {
     })
       .then((response) => response.json())
       .then((json) => setBlogs([...json]));
-  }, []);
+  });
   function setContent(tabName) {
     switch (tabName) {
       case 'Home':
         return <Home blogs={blogs} onClick={onClickReadMoreHandler} />;
       case 'Post':
-        return <Post />;
+        return <Post setHome={redirectHome}/>;
       case 'About':
         return <About />;
       case 'Contact':
@@ -42,6 +42,10 @@ function App() {
   }
 
   const [tab, setTab] = useState('Home');
+
+  const redirectHome = () => {
+    setTab('Home')
+  }
 
   const [selectedId, setSelectedId] = useState('');
 

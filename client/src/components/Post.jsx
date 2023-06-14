@@ -12,13 +12,20 @@ const Post = (props) => {
   };
 
   const postBlog = () => {
-    setNewBlog((prev) => ({ ...prev, id: Math.random().toString }));
-    props.addBlog(newBlog);
+    fetch('http://localhost:5000/api/v1', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newBlog),
+    });
   };
 
   const submitHandler = (event) => {
     event.preventDefault();
     postBlog();
+    setNewBlog({ title: '', content: '' });
+    props.setHome();
   };
 
   return (

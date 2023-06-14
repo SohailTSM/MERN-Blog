@@ -9,10 +9,17 @@ const Blog = (props) => {
       .then((response) => response.json())
       .then((json) => setBlog(json));
   }, []);
+
+  const deleteBlogHandler = () => {
+    
+  }
+
   return (
     <div>
       <h2>{blog.title}</h2>
       <p>{blog.content}</p>
+      {/* <button name='update'>Update</button> */}
+      <button name='delete' onClick={deleteBlogHandler}>Delete</button>
     </div>
   );
 };

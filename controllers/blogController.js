@@ -16,7 +16,6 @@ const getBlog = (req, res) => {
 const createBlog = (req, res) => {
   title = req.body.title;
   content = req.body.content;
-  console.log(req.body);
   const blog = new Blog({ title: title, content: content });
   blog
     .save()
