@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './components/Home';
@@ -8,11 +8,22 @@ import Contact from './components/Contact';
 import Blog from './components/Blog';
 import Page404 from './components/Page404';
 
+const getAllBlogs = async () => {
+  let data = await fetch('http://localhost:5000/api/v1', {
+    method: 'GET',
+  });
+  return await data.json();
+};
+
 function App() {
-  const blogs = [
-    { id: '0', title: 'Title 1', content: 'Content 1' },
-    { id: '1', title: 'Title 2', content: 'Content 2' },
-  ];
+  let [blogs, setBlogs] = useState();
+  useEffect(() => {
+    fetch('http://localhost:5000/api/v1', {
+      method: 'GET',
+    })
+      .then((response) => response.json())
+      .then((json) => setBlogs([...json]));
+  }, []);
   function setContent(tabName) {
     switch (tabName) {
       case 'Home':
