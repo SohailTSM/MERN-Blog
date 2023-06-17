@@ -3,17 +3,21 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 require('dotenv').config();
 const blogRoute = require('./routes/blogRoute');
-const cors = require('cors')
+const cors = require('cors');
 
 const app = express();
 
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(cors())
+app.use(cors());
 
 // Routes
 app.use('/api/v1', blogRoute);
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build'));
+}
 
 // DB connection
 mongoose
