@@ -8,13 +8,6 @@ import Contact from './components/Contact';
 import Blog from './components/Blog';
 import Page404 from './components/Page404';
 
-const getAllBlogs = async () => {
-  let data = await fetch('http://localhost:5000/api/v1', {
-    method: 'GET',
-  });
-  return await data.json();
-};
-
 function App() {
   let [blogs, setBlogs] = useState();
   useEffect(() => {
@@ -35,7 +28,7 @@ function App() {
       case 'Contact':
         return <Contact />;
       case 'Blog':
-        return <Blog id={selectedId} />;
+        return <Blog id={selectedId} setHome={redirectHome}/>;
       default:
         return <Page404 />;
     }
