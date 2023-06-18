@@ -4,7 +4,7 @@ import Card from './UI/Card';
 const Blog = (props) => {
   const [blog, setBlog] = useState({ title: '', content: '' });
   useEffect(() => {
-    fetch('http://localhost:5000/api/v1/' + props.id, {
+    fetch('https://mern-blog-tsm.vercel.app/api/v1/' + props.id, {
       method: 'GET',
     })
       .then((response) => response.json())
@@ -12,19 +12,19 @@ const Blog = (props) => {
   }, [props.id]);
 
   const deleteBlogHandler = () => {
-    fetch('http://localhost:5000/api/v1/' + props.id, {
+    fetch('https://mern-blog-tsm.vercel.app/api/v1/' + props.id, {
       method: 'DELETE',
-    })
-      .then((response) => props.setHome())
-      
-  }
+    }).then((response) => props.setHome());
+  };
 
   return (
-    <Card className = 'card blog' >
+    <Card className='card blog'>
       <h2>{blog.title}</h2>
       <p>{blog.content}</p>
       {/* <button name='update'>Update</button> */}
-      <button name='delete' onClick={deleteBlogHandler}>Delete</button>
+      <button name='delete' onClick={deleteBlogHandler}>
+        Delete
+      </button>
     </Card>
   );
 };

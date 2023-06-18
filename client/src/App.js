@@ -11,7 +11,7 @@ import Page404 from './components/Page404';
 function App() {
   let [blogs, setBlogs] = useState();
   useEffect(() => {
-    fetch('http://localhost:5000/api/v1', {
+    fetch('https://mern-blog-tsm.vercel.app/api/v1', {
       method: 'GET',
     })
       .then((response) => response.json())
@@ -22,13 +22,13 @@ function App() {
       case 'Home':
         return <Home blogs={blogs} onClick={onClickReadMoreHandler} />;
       case 'Post':
-        return <Post setHome={redirectHome}/>;
+        return <Post setHome={redirectHome} />;
       case 'About':
         return <About />;
       case 'Contact':
         return <Contact />;
       case 'Blog':
-        return <Blog id={selectedId} setHome={redirectHome}/>;
+        return <Blog id={selectedId} setHome={redirectHome} />;
       default:
         return <Page404 />;
     }
@@ -37,8 +37,8 @@ function App() {
   const [tab, setTab] = useState('Home');
 
   const redirectHome = () => {
-    setTab('Home')
-  }
+    setTab('Home');
+  };
 
   const [selectedId, setSelectedId] = useState('');
 
