@@ -16,7 +16,18 @@ app.use(cors());
 app.use('/api/v1', blogRoute);
 
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('client/build'));
+  const path = require('path');
+  app.use(express.static(path.resolve(__dirname, 'client', 'build')));
+  app.get('*', (req, res) => {
+    res.sendFile(
+      path.resolve(__dirname, 'client', 'build', 'index.html'),
+      function (err) {
+        if (err) {
+          res.status(500).send(err);
+        }
+      }
+    );
+  });
 }
 
 app.get('/', (req, res) => {
