@@ -4,7 +4,7 @@ import Card from './UI/Card';
 const Blog = (props) => {
   const [blog, setBlog] = useState({ title: '', content: '' });
   useEffect(() => {
-    fetch('https://mern-blog-tsm.onrender.com/api/v1' + props.id, {
+    fetch('https://mern-blog-tsm.onrender.com/api/v1/' + props.id, {
       method: 'GET',
     })
       .then((response) => response.json())
@@ -12,7 +12,7 @@ const Blog = (props) => {
   }, [props.id]);
 
   const deleteBlogHandler = () => {
-    fetch('https://mern-blog-tsm.onrender.com/api/v1' + props.id, {
+    fetch('https://mern-blog-tsm.onrender.com/api/v1/' + props.id, {
       method: 'DELETE',
     }).then((response) => props.setHome());
   };
