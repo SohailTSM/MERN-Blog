@@ -26,9 +26,10 @@ app.get('/', (req, res) => {
 // DB connection
 mongoose
   .connect(process.env.MONGODB_URI, {})
-  .then(() => {
-    app.listen(process.env.PORT || 5000, () => {
-      console.log(`Node server is up and running on port ${process.env.PORT}`);
-    });
-  })
+  .then(() => {})
   .catch((err) => console.log(err));
+
+// Listen
+app.listen(process.env.PORT || 5000, () => {
+  console.log(`Node server is up and running on port ${process.env.PORT}`);
+});
