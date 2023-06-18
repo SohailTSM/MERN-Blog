@@ -11,7 +11,7 @@ import Page404 from './components/Page404';
 function App() {
   let [blogs, setBlogs] = useState();
   useEffect(() => {
-    fetch('https://mern-blog-tsm.vercel.app/api/v1', {
+    fetch('https://mern-blog-tsm.onrender.com/api/v1', {
       method: 'GET',
     })
       .then((response) => response.json())
