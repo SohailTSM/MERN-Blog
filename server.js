@@ -19,11 +19,15 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
 }
 
+app.get('/', (req, res) => {
+  res.send('Home');
+});
+
 // DB connection
 mongoose
   .connect(process.env.MONGODB_URI, {})
   .then(() => {
-    app.listen(process.env.PORT, () => {
+    app.listen(process.env.PORT || 5000, () => {
       console.log(`Node server is up and running on port ${process.env.PORT}`);
     });
   })
